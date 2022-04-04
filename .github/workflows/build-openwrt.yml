@@ -82,10 +82,9 @@ jobs:
         
     - name: SSH connection to Actions
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-      run: $GITHUB_ACTION_PATH/$MODE2actions.sh
+      run: $GITHUB_ACTION_PATH/${{ inputs.mode }}2actions.sh
       shell: bash 
       env:
-        MODE: ${{ inputs.mode }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
