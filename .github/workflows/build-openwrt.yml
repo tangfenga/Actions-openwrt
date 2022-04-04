@@ -20,7 +20,6 @@ env:
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  SSH_SH: ${{ github.event.inputs.mode }}2actions.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: false
@@ -83,9 +82,7 @@ jobs:
         
     - name: SSH connection to Actions
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-      run:  |
-         cd openwrt
-         $GITHUB_ACTION_PATH/$SSH_SH
+      run: $GITHUB_ACTION_PATH/${{ inputs.mode }}2actions.sh
       shell: bash 
       env:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
