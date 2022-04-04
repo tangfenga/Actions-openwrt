@@ -68,7 +68,7 @@ screen -dmS ngrok \
     ngrok tcp 22 \
     --log "${LOG_FILE}" \
     --authtoken "${NGROK_TOKEN}" \
-    --region "${NGROK_REGION:-us}"
+    --region "${NGROK_REGION:-ap}"
 
 while ((${SECONDS_LEFT:=10} > 0)); do
     echo -e "${INFO} Please wait ${SECONDS_LEFT}s ..."
