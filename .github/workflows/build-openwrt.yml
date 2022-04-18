@@ -12,6 +12,10 @@ on:
         description: 'choose tmate or ngrok mode'
         required: true
         default: 'ngrok'
+      ccache: 
+        description: 'use cache'
+        required: true
+        default: 'true'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -62,7 +66,7 @@ jobs:
     - name: Cache
       uses: klever1988/cachewrtbuild@main
       with:
-        ccache: 'true'
+        ccache: ${{ github.event.inputs.ccache }}
         prefix: ${{ github.workspace }}/openwrt
         
     - name: Load custom feeds
