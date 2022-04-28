@@ -54,7 +54,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        curl https://github.com/openwrt/openwrt/archive/refs/tags/v21.02.2.tar.gz openwrt
+        curl -L https://github.com/immortalwrt/immortalwrt/archive/refs/tags/v21.02.0.tar.gz -o openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
     - name: Cache
