@@ -80,11 +80,18 @@ ERRORS_LOG=$(grep "command failed" ${LOG_FILE})
 
 if [[ -e "${LOG_FILE}" && -z "${ERRORS_LOG}" ]]; then
     SSH_CMD="$(grep -oE "tcp://(.+)" ${LOG_FILE} | sed "s/tcp:\/\//ssh ${USER}@/" | sed "s/:/ -p /")"
+    HOST_INFO="$(grep -oE "[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?" ${SSH_CMD})"
+    PORT_INFO="$(grep -oE "^\d{1,5}$" ${SSH_CMD:7})"
     MSG="
 *GitHub Actions - ngrok session info:*
 
 ⚡ *CLI:*
 \`${SSH_CMD}\`
+
+🛡️*SSH info*
+User name:\`${USER}\`
+Host:\`${HOST_INFO}\`
+Port:\`${PORT_INFO}\`
 
 🔔 *TIPS:*
 Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
