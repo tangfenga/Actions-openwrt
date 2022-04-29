@@ -54,10 +54,9 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        mkdir openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
-        rm -rf *
         curl -L https://github.com/immortalwrt/immortalwrt/archive/refs/tags/v21.02.0.tar.gz
         tar -zxvf immortalwrt-21.02.0.tar.gz
         
