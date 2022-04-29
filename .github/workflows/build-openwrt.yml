@@ -55,9 +55,9 @@ jobs:
       run: |
         df -hT $PWD
         curl -L https://github.com/immortalwrt/immortalwrt/archive/refs/tags/v21.02.0.tar.gz -o openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
         tar -zxvf v21.02.0.tar.gz
-        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
     - name: Cache
       uses: klever1988/cachewrtbuild@main
