@@ -57,7 +57,7 @@ jobs:
         mkdir openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
-        curl https://github.com/immortalwrt/immortalwrt/archive/refs/tags/v21.02.0.tar.gz -o openwrt.tar.gz
+        curl https://codeload.github.com/immortalwrt/immortalwrt/tar.gz/refs/tags/v21.02.0 -o openwrt.tar.gz
         tar -zxvf openwrt.tar.gz
         
     - name: Cache
