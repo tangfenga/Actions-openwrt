@@ -12,10 +12,6 @@ on:
         description: 'choose tmate or ngrok mode'
         required: true
         default: 'ngrok'
-      ccache: 
-        description: 'use cache'
-        required: true
-        default: 'true'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -58,14 +54,7 @@ jobs:
         tar -zxvf openwrt.tar.gz
         mv immortalwrt-21.02.0 openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        
-    - name: Cache
-      if: github.event.inputs.ccache
-      uses: klever1988/cachewrtbuild@main
-      with:
-        ccache: ${{ github.event.inputs.ccache }}
-        prefix: ${{ github.workspace }}/openwrt
-        
+   
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
