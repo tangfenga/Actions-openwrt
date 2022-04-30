@@ -60,6 +60,7 @@ jobs:
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
     - name: Cache
+      if: github.event.inputs.ccache
       uses: klever1988/cachewrtbuild@main
       with:
         ccache: ${{ github.event.inputs.ccache }}
