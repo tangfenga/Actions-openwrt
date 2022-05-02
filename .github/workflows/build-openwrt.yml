@@ -50,7 +50,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        curl https://codeload.github.com/immortalwrt/immortalwrt/tar.gz/refs/tags/v21.02.0 -o openwrt.tar.gz
+        curl https://codeload.github.com/openwrt/openwrt/zip/refs/tags/v21.02.2 -o openwrt.tar.gz
         tar -zxvf openwrt.tar.gz
         mv immortalwrt-21.02.0 openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
