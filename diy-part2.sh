@@ -9,7 +9,6 @@ mkdir tang
 cd tang
 git clone --depth 1 https://github.com/rufengsuixing/luci-app-adguardhome
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon
-git clone --depth=1 https://github.com/fw876/helloworld.git
 git clone --depth=1 https://github.com/vernesong/OpenClash.git
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
 
