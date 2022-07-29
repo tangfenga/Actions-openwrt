@@ -131,7 +131,8 @@ jobs:
             -d "parse_mode=Markdown" \
             -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
             -d "text=编译好啦，Actions完成啦
-          日期:$(date +"%Y.%m.%d-%H%M")"
+        日期:$(date +"%Y.%m.%d-%H%M")
+        状态:${{ steps.compile.outputs.status }}"
 
     - name: Upload firmware directory
       uses: actions/upload-artifact@main
