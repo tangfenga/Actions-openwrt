@@ -12,10 +12,6 @@ on:
         description: 'choose tmate or ngrok mode'
         required: true
         default: 'ngrok'
-      ccache: 
-        description: 'use cache'
-        required: true
-        default: 'true'
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
@@ -56,12 +52,6 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        
-    - name: Cache
-      uses: klever1988/cachewrtbuild@main
-      with:
-        ccache: ${{ github.event.inputs.ccache }}
-        prefix: ${{ github.workspace }}/openwrt
         
     - name: Load custom feeds
       run: |
