@@ -130,9 +130,9 @@ jobs:
             -d "disable_web_page_preview=true" \
             -d "parse_mode=Markdown" \
             -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
-            -d "text=编译好啦，Actions完成啦
-        日期:$(date +"%Y.%m.%d-%H%M")
-        状态:${{ steps.compile.outputs.status }}"
+            -d "text=Build openwrt
+        状态:${{ steps.compile.outputs.status }}✅
+        日期:$(date +"%Y.%m.%d-%H%M")"
 
     - name: Upload firmware directory
       uses: actions/upload-artifact@main
